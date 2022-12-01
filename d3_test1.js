@@ -26,7 +26,7 @@ crashData2.then(function (data) {
     console.log(2)
     console.log(domain_true)
 
-    width = 380;
+    width = 500;
     height = 1000;
 
     // Projection of Chicago
@@ -57,7 +57,7 @@ crashData2.then(function (data) {
                       .attr("class", "topo")
 
                     svg.append("text")
-                         .attr("transform", "translate(70,320)")
+                         .attr("transform", "translate(70,420)")
                          .attr("x", 50)
                          .attr("y", 50)
                          .attr("font-size", "24px")
@@ -121,7 +121,7 @@ crashData2.then(function (data) {
                       .attr("class", "topo1")
 
                     svg2.append("text")
-                         .attr("transform", "translate(50,320)")
+                         .attr("transform", "translate(50,420)")
                          .attr("x", 50)
                          .attr("y", 50)
                          .attr("font-size", "24px")

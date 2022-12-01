@@ -9,9 +9,9 @@ Promise.all([
   crashData = files[0]
   y22 = files[1]
 
-  margin = ({top: 10, right: 20, bottom: 50, left: 105});
-  visWidth = 800;
-  visHeight = 500;
+  margin = ({top: 10, right: 150, bottom: 50, left: 105});
+  visWidth = window.innerWidth - margin.left - margin.right;
+  visHeight = visWidth/1.6;
 
   subgroups = ["DEPLOYED, COMBINATION", "DEPLOYMENT UNKNOWN", "DID NOT DEPLOY", "DEPLOYED, FRONT","NOT APPLICABLE","DEPLOYED, SIDE",  "DEPLOYED OTHER (KNEE, AIR, BELT, ETC.)"]
   groups = [1,2,3,4,5,6,7,8,9,10,11,12]
@@ -56,14 +56,14 @@ Promise.all([
          .attr("x", 50)
          .attr("y", 50)
          .attr("font-size", "18px")
-         .text("Crashes Vs Lighting Conditions Vs Seasons")
+         .text("Crashes Vs Month Vs AIRBAG_DEPLOYED")
 
     svg.append("text")
-         .attr("transform", "translate(270,500)")
+         .attr("transform", "translate(350," + visHeight + ")")
          .attr("x", 50)
          .attr("y", 50)
          .attr("font-size", "17px")
-         .text("Seasons")
+         .text("Months")
 
     svg.append("text")
          .attr("transform", "translate(-50,155)")
@@ -76,19 +76,19 @@ Promise.all([
 
     //Legend
 
-  //   svg.append("circle").attr("cx",600).attr("cy",50).attr("r", 6).style("fill", "#8dd3c7")
-  //   svg.append("circle").attr("cx",600).attr("cy",80).attr("r", 6).style("fill", "#ffffb3")
-  //   svg.append("circle").attr("cx",600).attr("cy",110).attr("r", 6).style("fill", "#bebada")
-  //   svg.append("circle").attr("cx",600).attr("cy",140).attr("r", 6).style("fill", "#fb8072")
-  //   svg.append("circle").attr("cx",600).attr("cy",170).attr("r", 6).style("fill", "#80b1d3")
-  //   svg.append("circle").attr("cx",600).attr("cy",200).attr("r", 6).style("fill", "#fdb462")
-  //   svg.append("text").attr("x", 620).attr("y", 50).text("DARKNESS").style("font-size", "11px").attr("alignment-baseline","middle")
-  //   svg.append("text").attr("x", 620).attr("y", 80).text("DARKNESS, LIGHTED ROAD").style("font-size", "11px")
-  //     .attr("alignment-baseline","middle")
-  // svg.append("text").attr("x", 620).attr("y", 110).text("UNKNOWN").style("font-size", "11px").attr("alignment-baseline","middle")
-  // svg.append("text").attr("x", 620).attr("y", 140).text("DUSK").style("font-size", "11px").attr("alignment-baseline","middle")
-  // svg.append("text").attr("x", 620).attr("y", 170).text("DAWN").style("font-size", "11px").attr("alignment-baseline","middle")
-  // svg.append("text").attr("x", 620).attr("y", 200).text("DAYLIGHT").style("font-size", "11px").attr("alignment-baseline","middle")
+    svg.append("circle").attr("cx",600).attr("cy",50).attr("r", 6).style("fill", "#7fc97f")
+    svg.append("circle").attr("cx",600).attr("cy",80).attr("r", 6).style("fill", "#beaed4")
+    svg.append("circle").attr("cx",600).attr("cy",110).attr("r", 6).style("fill", "#fdc086")
+    svg.append("circle").attr("cx",600).attr("cy",140).attr("r", 6).style("fill", "#ffff99")
+    svg.append("circle").attr("cx",600).attr("cy",170).attr("r", 6).style("fill", "#386cb0")
+    svg.append("circle").attr("cx",600).attr("cy",200).attr("r", 6).style("fill", "#f0027f")
+    svg.append("text").attr("x", 620).attr("y", 50).text("DEPLOYED, COMBINATION").style("font-size", "11px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 620).attr("y", 80).text("DEPLOYMENT UNKNOWN").style("font-size", "11px")
+      .attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 620).attr("y", 110).text("DID NOT DEPLOY").style("font-size", "11px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 620).attr("y", 140).text("DEPLOYED, FRONT").style("font-size", "11px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 620).attr("y", 170).text("NOT APPLICABLE").style("font-size", "11px").attr("alignment-baseline","middle")
+  svg.append("text").attr("x", 620).attr("y", 200).text("DEPLOYED, SIDE").style("font-size", "11px").attr("alignment-baseline","middle")
 
     //Svg
     const g = svg.append('g')
@@ -188,7 +188,7 @@ Promise.all([
             .attr("font-size", "24px")
             .text(function(d){
                   //console.log(":" + data.properties.NAME)
-                  return k + data.Month;
+                  return k + " Month: " + data.Month;
               })
             .attr("transform","translate(0,30)");
 

@@ -26,19 +26,51 @@
 
 		<!-- <select id="selectButton"></select> -->
 
-		<div id="my_dataviz1"></div>
+		<div class="center">
+				<h2>CS 424 Final Project</h2>
+				<h1>Dataset : Traffic Crashes in Chicago (People)</h1>
+				<h3>By Vivek Nadimpalli and Jahnavi Eega</h3>
+		</div>
+		<br>
+		<br>
+		<br>
+
+		<div id="my_dataviz1">
+			<h2>Viz 1 : What is the correlation between age and the time (day/night) of a crash? </h2>
+			<p>Observation : We have used a bar graph where the x axis represents the day of the hour and the y axis represents the average age of people involved in a crash to shed light on the fact that the average age of the person involved in a crash increases as the day progresses and decreases at night. Therefore, Young drivers are more involved in night crashes and older people are more involved in daytime crashes.</p>
+			<br>
+			<br>
+			<br>
+		</div>
+
+		<br>
+		<br>
+		<br>
 
 		<div id="my_dataviz2">
+			<h2>Viz 2 : What effect does the time of the day have on the gender involved in a crash?</h2>
+			<p>Observation : The graph shows us that the number of males involved in crashes is more than females. But, the trend of both men and women is similar in all 3 cases. Therefore, we can say there is not much effect of the time of the crash on gender.</p>
+			<br>
+			<br>
+			<br>
 			<div id="option">
 				<select id="selectButton"></select>
 			</div>
 		<div id="line"></div>
 		</div>
 
+		<br>
+
 		<div id="my_dataviz3">
-			<div><h1>Crashes in Chicago during day and night</h1></div>
+			<h2>Viz 3: What effect does the time of the day have on crashes in every county?</h2>
+			<p>Observation: The map to your left describes the crashes at day and the one to your right depicts the crashes at night time. In relative terms, few counties have more accidents in daylight conditions than at night. Counties 60623 and 60629 have an equally high number of crashes during the day and night. This may be due to more traffic, road conditions, and population. etc. Also, the male crashes is represented blue bar, female crashes is represented pink bar, Age < 40 crashes is represented by green bar and Age > 40 crashes is represented by mustard bar.</p>
+			<p>Interaction: When we click over the counties on either map, we see the male and female crashes and age distribution of that county which is helpful to gain more info like few countries have more females than males involved in crashes. While we hover over one county, the rest of the other counties become opaque.</p>
+
+			<br>
+
+			<div><h3>Crashes in Chicago during day and night</h3></div>
 			<div id="map"></div>
-			<div id="rbox"></div>
+			<div class="right" id="rbox"></div>
 		</div>
 
 		<script id="map" type="text/javascript" src="d3_test.js">

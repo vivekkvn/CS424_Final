@@ -28,9 +28,9 @@ crashData1.then(function (data) {
   data1_1 = d3.rollup(data, v => v.length, d=> d.Hour, d => d.SEX)
   data1_2 = d3.rollup(data, v => v.length, d=> d.Hour, d => d.SEX, d => d.PERSON_TYPE)
 
-  margin = ({top: 20, right: 20, bottom: 30, left: 50})
-  width = window.innerWidth/2 - margin.left - margin.right
-  height = window.innerWidth/4 - margin.top - margin.bottom
+  margin = ({top: 80, right: 20, bottom: 30, left: 50})
+  width = window.innerWidth/1.2 - margin.left - margin.right
+  height = window.innerWidth/2 - margin.top - margin.bottom
 
   x = d3.scaleLinear().range([0,width])
   y = d3.scaleLinear().range([height, 0])
@@ -104,7 +104,7 @@ function barplot() {
               .attr('height', visHeight + margin.top + margin.bottom );
 
     svg.append("text")
-               .attr("transform", "translate(100,0)")
+               .attr("transform", "translate(350,-20)")
                .attr("x", 50)
                .attr("y", 50)
                .attr("font-size", "24px")
@@ -169,8 +169,8 @@ function barplot() {
 val1 = function(data) {
 
   margin = ({top: 20, right: 20, bottom: 30, left: 50})
-  width = window.innerWidth/2 - margin.left - margin.right
-  height = window.innerWidth/4 - margin.top - margin.bottom
+  width = window.innerWidth/1.2 - margin.left - margin.right
+  height = window.innerWidth/2 - margin.top - margin.bottom
 
   console.log(data)
 
@@ -267,7 +267,7 @@ val1 = function(data) {
 
   // Add the X Axis
   svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + height/1.11 + ")")
       .call(d3.axisBottom(x).ticks(24));
 
   // Add the Y Axis
@@ -279,8 +279,8 @@ val1 = function(data) {
 val2 = function(data,i) {
 
   margin = ({top: 20, right: 20, bottom: 30, left: 50})
-  width = window.innerWidth - margin.left - margin.right
-  height = window.innerWidth/4 - margin.top - margin.bottom
+  width = window.innerWidth/1.2 - margin.left - margin.right
+  height = window.innerWidth/2 - margin.top - margin.bottom
 
   console.log(data)
   console.log(i)
@@ -386,7 +386,7 @@ val2 = function(data,i) {
 
   // Add the X Axis
   svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + height/1.1 + ")")
       .call(d3.axisBottom(x).ticks(24));
 
   // Add the Y Axis
