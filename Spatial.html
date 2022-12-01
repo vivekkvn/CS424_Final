@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>D3.js Essential Training for Data Scientists</title>
+		<link rel="stylesheet" href="css/HW1.css">
+    <script src="http://d3js.org/d3.v6.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.4/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.4/dist/MarkerCluster.css">
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.4/dist/leaflet.markercluster.js"></script>
+
+		<style>
+			 #map {
+					 position: absolute;
+					 width: 60%;
+					 height: 68%;
+			 }
+
+	 </style>
+
+	</head>
+
+	<body>
+
+		<div class = "navigation">
+			<nav id="navlist">
+  			<ul>
+    			<li><a href="index.html">Home</a></li>
+    			<li><a href="Multi_View.html">Multi View</a></li>
+    			<li><a href="Spatial.html">Spatial View</a></li>
+					<li style="float:right"><a href="credit.html">Credit</a></li>
+  			</ul>
+			</nav>
+		</div>
+
+
+		<!-- <select id="selectButton"></select> -->
+
+		<div class = "sv_2">
+            <div id="map"></div>
+            <div id="plot"></div>
+    </div>
+
+		<script id="map" type="text/javascript" src="require.js">
+		</script>
+
+		<script id="map" type="text/javascript" src="d3_test5.js">
+		</script>
+  </body>
+
+</html>
