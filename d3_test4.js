@@ -174,12 +174,13 @@ Promise.all([
     var male_pct = Number(male_val)/(Number(fem_val)+Number(male_val))
     var fem_pct = Number(fem_val)/(Number(fem_val)+Number(male_val))
 
+    console.log(male_val)
     d3.select("#rbox").selectAll("svg")
         .remove()
 
     var canvas = d3.select("#rbox").append("svg")
-            .attr("width", 300)
-            .attr("height", 100)
+            .attr("width", window.innerWidth - window.innerWidth/5)
+            .attr("height", 75)
 
     canvas.append("text")
             //.attr("transform", "translate(100,380)")
@@ -188,56 +189,56 @@ Promise.all([
             .attr("font-size", "24px")
             .text(function(d){
                   //console.log(":" + data.properties.NAME)
-                  return k + " Month: " + data.Month;
+                  return "Air Bag classification : "+ k + ", Month: " + data.Month;
               })
             .attr("transform","translate(0,30)");
 
     var canvas1 = d3.select("#rbox").append("svg")
-            .attr("width", 900)
-            .attr("height", 25)
+            .attr("width", window.innerWidth - window.innerWidth/5)
+            .attr("height", 50)
 
 
-            canvas1.append("text")
+    canvas1.append("text")
             //.attr("transform", "translate(100,380)")
             .attr("x",10)
             .attr("y", 10)
-            .attr("font-size", "12px")
+            .attr("font-size", "24px")
             .text(function(d){
                   //console.log("State:" + data.properties.NAME)
                   return "Male: " + Number(male_val);
               })
-            .attr("transform","translate(0,0)");
+            .attr("transform","translate(0,10)");
 
             canvas1.append("rect")
             .attr("transform",
-             "translate(100,0)")
+             "translate(150,0)")
             .transition()
-            .attr("width", 150 * male_pct)
-            .attr("height", 10)
+            .attr("width", 2 * Number(male_val))
+            .attr("height", 20)
             .style("fill", "blue");
 
     var canvas2 = d3.select("#rbox").append("svg")
             .attr("width", 900)
-            .attr("height", 25)
+            .attr("height", 55)
 
     canvas2.append("text")
             //.attr("transform", "translate(100,380)")
             .attr("x",10)
             .attr("y", 10)
-            .attr("font-size", "12px")
+            .attr("font-size", "24px")
             .text(function(d){
                   //console.log("State:" + data.properties.NAME)
                   return "Female: " + Number(fem_val);
               })
-            .attr("transform","translate(0,0)");
+            .attr("transform","translate(0,10)");
 
 
     canvas2.append("rect")
             .attr("transform",
-               "translate(100,0)")
+               "translate(150,0)")
             .transition()
-            .attr("width", 150 * fem_pct)
-            .attr("height", 10)
+            .attr("width", 2 * Number(fem_val))
+            .attr("height", 20)
             .style("fill", "pink");
 
   }

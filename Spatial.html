@@ -51,8 +51,22 @@
             <div id="plot"></div>
     </div>
 
+		<!-- <h2>Hour Analysis</h2> -->
+
 		<div id="my_dataviz1">
 		</div>
+
+		<script >
+
+				trans = window.innerHeight + 100
+				trans_text = trans + "px"
+
+				d3.select("#my_dataviz1")
+ 					.style("position","absolute")
+ 					//.style("top","0px")
+ 					//.transition()
+ 					.style("top",trans_text);
+		</script>
 
 		<script id="map" type="text/javascript" src="require.js">
 		</script>
@@ -60,8 +74,8 @@
 		<script id="map" type="text/javascript" src="d3_test5.js">
 		</script>
 
-		<!-- <script id="map" type="text/javascript" src="d3_test.js">
-		</script> -->
+		<script id="map" type="text/javascript" src="d3_test.js">
+		</script>
   </body>
 
 </html>

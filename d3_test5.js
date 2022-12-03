@@ -14,7 +14,7 @@ Promise.all([
     //heatLayer = L, require('leaflet.heat').catch(() =>  L.heatLayer);
     //markerCluster = L, require('leaflet.markercluster@1.1.0').catch(() => L.markerClusterGroup);
 
-    var width = window.innerWidth;
+    var width = window.innerWidth/2;
     var height  = width / 1.6;
 
     console.log(width)
@@ -51,13 +51,16 @@ Promise.all([
         const data = feature.properties;
 
         const html = `<div class="popup"><h2>${data.Street}</h2>` +
-                          `<h1 style="font-weight: bold;">Month:
-                          <span style="color: red;">${data.Month}</span></h1></div>`;
+                          `<h1 style="font-weight: bold;">Hour of day:
+                          <span style="color: red;">${data.Hour}</span></h1></div>`;
 
         // const html = `<div class="popup"><h3>${data.Street}</h3>` +
         //       `<p>(${data.Street.toLowerCase()})<br />${data.YEAR}<br />${data.Month}</p></div>`;
         layer.bindPopup(html);
         layer.bindTooltip(html, {sticky: true});
+        layer.on({
+                    click: mouseClicked
+                  });
       }
     });
     //markers.addLayer(markersLayer);
@@ -66,6 +69,37 @@ Promise.all([
       // map.fitBounds(markers.getBounds());
 
     console.log(map)
+
+    function mouseClicked(e) {
+      var layer = e.target;
+      var clicked_data = layer.feature.properties;
+      hr = Number(clicked_data.Hour)
+      dummy_data = []
+
+      for(i = 0; i < hr; i++){
+        //console.log(hr)
+        dummy_data.push('foo');
+      }
+      //console.log(dummy_data)
+
+      const svg = d3.select('#my_dataviz1')
+                .select('svg')
+
+      svg.data(dummy_data)
+          .enter()
+          .selectAll('rect')
+          .style("fill", function(d,i){
+            console.log(i)
+            if(i == hr){
+              return "Red"
+            }
+            else{
+              return "LightBlue"
+            }
+          })
+
+
+    }
 
     function createMap() {
       // create Stamen leaflet toner map with attributions
@@ -102,7 +136,8 @@ Promise.all([
           properties: {
             Street: h.Street,
             Year: h.YEAR,
-            Month: h.Month
+            Month: h.Month,
+            Hour: h.Hour
           },
           geometry: {
             type: 'Point',
