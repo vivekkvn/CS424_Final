@@ -35,7 +35,6 @@ Promise.all([
 
   stackedPlot()
 
-
   function getKeyByValue(object, value) {
     console.log(object)
     console.log(Object.keys(object).find(key => object[key] == value))
@@ -50,7 +49,6 @@ Promise.all([
 
     const xdata = [0,1,2,3,4,5,6,7,8,9,10,11,12];
 
-  //axis labels
     svg.append("text")
          .attr("transform", "translate(210,-25)")
          .attr("x", 50)
@@ -73,9 +71,6 @@ Promise.all([
          .attr("font-size", "17px")
          .text("Crashes")
 
-
-    //Legend
-
     svg.append("circle").attr("cx",600).attr("cy",50).attr("r", 6).style("fill", "#7fc97f")
     svg.append("circle").attr("cx",600).attr("cy",80).attr("r", 6).style("fill", "#beaed4")
     svg.append("circle").attr("cx",600).attr("cy",110).attr("r", 6).style("fill", "#fdc086")
@@ -94,8 +89,6 @@ Promise.all([
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    // axes
-
       g.append("g")
            .call(d3.axisLeft(y).tickFormat(function(d){
                return d;
@@ -110,23 +103,17 @@ Promise.all([
            })
             .ticks(12))
            .append("text")
-
-
     //const subgroups = ["DARKNESS","DARKNESS,LIGHTED ROADS","UNKNOWN","DUSK","DAWN","DAYLIGHT"]
     const subgroups = ["DEPLOYED, COMBINATION", "DEPLOYMENT UNKNOWN", "DID NOT DEPLOY", "DEPLOYED, FRONT","NOT APPLICABLE","DEPLOYED, SIDE",  "DEPLOYED OTHER (KNEE, AIR, BELT, ETC.)"]
-
     // List of groups = species here = value of the first column called group -> I show them on the X axis
     //const groups = ["0","1","2","3"]
     const groups = ["1","2","3","4","5","6","7","8","9","10","11","12"]
-
     //stack the data? --> stack per subgroup
     stack_obj = d3.stack()
                   .keys(subgroups)
-
     console.log(y22.PromiseResult)
     const stackedData = stack_obj(y22)
     // console.log(stackedData)
-
     // Show the bars
     g.append("g")
       .selectAll("g")
@@ -240,8 +227,5 @@ Promise.all([
             .attr("width", 2 * Number(fem_val))
             .attr("height", 20)
             .style("fill", "pink");
-
   }
-
-
 })
